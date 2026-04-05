@@ -19,7 +19,7 @@ export default function MainLayout() {
           FRONTEND MASTERY
         </h1>
         <nav className ='mt-8 flex flex-col gap-2'>
-          {navItems.map((item)=>{
+          {navItems.map((item)=>(
             <Link key={item.name} to={item.path}>
               <motion.div
               whileHover={{x: 4 }}
@@ -30,7 +30,7 @@ export default function MainLayout() {
                 <span className="text-sm font-medium">{item.name}</span>
               </motion.div>
             </Link>
-          })}
+          ))}
         </nav>
       </aside>
       <main className='flex-1 p-8'> <Outlet /> </main>

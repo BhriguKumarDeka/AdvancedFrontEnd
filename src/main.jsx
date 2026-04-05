@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { ErrorBoundary } from 'react-error-boundary';
+import GlobalErrorFallback from './core/components/GlobalErrorFallback.jsx';
 import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <ErrorBoundary FallbackComponent={GlobalErrorFallback}
+    onReset={ ()=> window.location.replace('/')}> 
+    {/* wipes the state and forces a full reload */}
     <App />
-  </StrictMode>,
+  </ErrorBoundary>,
 )
